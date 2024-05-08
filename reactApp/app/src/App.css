@@ -1,0 +1,46 @@
+
+.yellow-strip {
+  background-color: yellow;
+  height: 20px; /* Adjust height as needed */
+  width: 100%;
+}
+
+.container {
+  text-align: center;
+}
+
+.container input,
+.container button {
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0f0f0; /* Adjust the background color as needed */
+}
+
+.left-menu {
+  display: flex;
+}
+
+.left-menu p {
+  margin-right: 20px; /* Add margin to the right of each left-menu item */
+}
+
+.right-menu {
+  display: flex;
+  align-items: center; /* Vertically center the content */
+}
+
+.user-info {
+  display: flex;
+  align-items: center; /* Align items horizontally */
+}
+
+.user-info p {
+  margin-right: 10px; /* Add some space between username and Logout button */
+}
+

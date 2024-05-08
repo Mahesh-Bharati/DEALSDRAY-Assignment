@@ -1,9 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const app = express();
 app.use(bodyParser.json())
+app.use(cors())
 mongoose.connect("mongodb://0.0.0.0:27017/DEALSDRAY")
   .then(() => {
     console.log("Connected to MongoDB");
@@ -56,8 +58,26 @@ app.post("/addUser", (req, res) => {
         res.status(500).send("Error creating user");
       });
   });
+// Login route
+app.post("/login", async (req, res) => {
+    const { f_userName, f_Pwd } = req.body;
+  
+    try {
+      // Check if the user exists in the database
+      const user = await userModel.findOne({ f_userName, f_Pwd });
+  
+      if (user) {
+        return res.status(200).send("Login successful");
+      } else {
+        return res.status(401).json({ error: "Invalid credentials" });
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      return res.status(500).send("Internal Server Error");
+    }
+  });
   
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(3001, () => {
+  console.log("Server is running on port 3001");
 });
