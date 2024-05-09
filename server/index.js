@@ -174,6 +174,29 @@ app.put('/updateEmployee/:id', async (req, res) => {
     }
   });
 
+  // Define a route to get employee data by ID
+app.get('/getEmployee/:id', async (req, res) => {
+    const employeeId = req.params.id;
+  
+    try {
+      // Find the employee by ID in the database
+      const employee = await Employee.findById(employeeId);
+  
+      if (!employee) {
+        // If employee with the given ID is not found, return 404 Not Found
+        return res.status(404).json({ error: 'Employee not found' });
+      }
+  
+      // If employee found, send the employee data in the response
+      res.json(employee);
+    } catch (error) {
+      // If there's any error, send 500 Internal Server Error
+      console.error('Error fetching employee data by ID:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
 });

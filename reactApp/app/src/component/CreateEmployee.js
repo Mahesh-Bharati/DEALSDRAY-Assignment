@@ -118,19 +118,19 @@ function CreateEmployee() {
           <label>Courses:</label>
           <div>
             <label>
-              <input type="checkbox" name="f_Course" value="Math" onChange={handleCheckboxChange} checked={formData.f_Course.includes('Math')} />
+              <input type="checkbox" name="f_Course" value="MCA" onChange={handleCheckboxChange} checked={formData.f_Course.includes('MCA')} />
               MCA
             </label>
           </div>
           <div>
             <label>
-              <input type="checkbox" name="f_Course" value="Science" onChange={handleCheckboxChange} checked={formData.f_Course.includes('Science')} />
+              <input type="checkbox" name="f_Course" value="BCA" onChange={handleCheckboxChange} checked={formData.f_Course.includes('BCA')} />
               BCA
             </label>
           </div>
           <div>
             <label>
-              <input type="checkbox" name="f_Course" value="History" onChange={handleCheckboxChange} checked={formData.f_Course.includes('History')} />
+              <input type="checkbox" name="f_Course" value="BSC" onChange={handleCheckboxChange} checked={formData.f_Course.includes('BSC')} />
               BSC
             </label>
           </div>

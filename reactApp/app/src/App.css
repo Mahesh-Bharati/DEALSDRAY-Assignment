@@ -7,12 +7,15 @@
 
 .container {
   text-align: center;
-}
+  margin: 10px;
+  
+  
+} 
 
-.container input,
+/* .container input,
 .container button {
-  margin: 10px; /* Adjust margin as needed */
-}
+  margin: 10px;  
+}  */
 
 .dashboard-container {
   display: flex;
@@ -135,4 +138,49 @@ tr:hover {
   height: auto;
 }
 
+/* css for edit employee */
+.edit-employee-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
 

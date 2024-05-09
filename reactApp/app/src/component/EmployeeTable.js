@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import { Link } from 'react-router-dom';
+//import EditEmployee from './EditEmployee';
+//import CreateEmployee from './CreateEmployee';
+
 
 function EmployeeTable() {
   const [employees, setEmployees] = useState([]);
@@ -22,10 +26,12 @@ function EmployeeTable() {
     }
   };
 
-  const handleEdit = (id) => {
-    // Implement edit functionality
-    console.log('Edit employee with ID:', id);
-  };
+//   const handleEdit = (id) => {
+//     <EditEmployee id={id}></EditEmployee>
+//     console.log('Edit employee with ID:',{id});
+    
+    
+//   };
 
  
     const handleDelete = async (id) => {
@@ -79,7 +85,8 @@ function EmployeeTable() {
               <td>{employee.f_Course}</td>
              
               <td>
-                <button onClick={() => handleEdit(employee._id)}>Edit</button>
+              {/* <link to={`/update/${employee._id}`}>Edit</link> */}
+              <Link to={`/update/${employee._id}`}>Edit</Link>
                 <button onClick={() => handleDelete(employee._id)}>Delete</button>
               </td>
             </tr>

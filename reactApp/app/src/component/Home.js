@@ -50,15 +50,12 @@ function Home() {
     <div>
       <h1>Logo</h1>
       <p className="yellow-strip">login page</p>
-      <div className="container">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+      <div className='container'>
+        <input placeholder='Username' value={username} onChange={(e)=>setUsername(e.target.value)}>
+        </input>
       </div>
-      <div className="container">
+      
+      <div className='container'>
         <input
           type="password"
           placeholder="Password"
