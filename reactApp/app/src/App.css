@@ -28,6 +28,7 @@
 
 .left-menu p {
   margin-right: 20px; /* Add margin to the right of each left-menu item */
+  margin-left: 20px;
 }
 
 .right-menu {
@@ -37,10 +38,67 @@
 
 .user-info {
   display: flex;
-  align-items: center; /* Align items horizontally */
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px; /* Align items horizontally */
 }
 
 .user-info p {
   margin-right: 10px; /* Add some space between username and Logout button */
 }
+
+/*css for createEmployee */
+.employee-form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="file"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-group select {
+  padding: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
 

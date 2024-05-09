@@ -2,10 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const multer = require('multer');
+const path = require('path');
+
+
 
 const app = express();
 app.use(bodyParser.json())
 app.use(cors())
+
 mongoose.connect("mongodb://0.0.0.0:27017/DEALSDRAY")
   .then(() => {
     console.log("Connected to MongoDB");
@@ -74,6 +79,52 @@ app.post("/login", async (req, res) => {
     } catch (err) {
       console.error("Error:", err);
       return res.status(500).send("Internal Server Error");
+    }
+  }); 
+
+  const employeeSchema = new mongoose.Schema({
+    f_Id: { type: String, required: true },
+    f_Image: { type: String, required: true },
+    f_Name: { type: String, required: true },
+    f_Email: { type: String, required: true },
+    f_Mobile: { type: String, required: true },
+    f_Designation: { type: String, required: true },
+    f_gender: { type: String, required: true },
+    f_Course: { type: String, required: true },
+    f_Createdate: { type: Date, default: Date.now }
+  });
+  
+  const Employee = mongoose.model("Employee", employeeSchema);
+  
+  const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+  });
+  
+  const upload = multer({ storage: storage });
+  
+  app.post('/addEmployee', upload.single('f_Image'), async (req, res) => {
+    try {
+      const { f_Id, f_Name, f_Email, f_Mobile, f_Designation, f_gender, f_Course } = req.body;
+      const newEmployee = new Employee({
+        f_Id,
+        f_Image: req.file.path,
+        f_Name,
+        f_Email,
+        f_Mobile,
+        f_Designation,
+        f_gender,
+        f_Course
+      });
+      await newEmployee.save();
+      res.status(201).json({ message: "Employee added successfully" });
+    } catch (error) {
+      console.error("Error adding employee:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   });
   

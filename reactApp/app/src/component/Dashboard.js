@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import Logout from './Logout';
 
@@ -9,8 +10,11 @@ function Dashboard() {
         <h1>Logo</h1>
         <div className="dashboard-container">
       <div className="left-menu">
+        <div className='user-info'>
         <p>Home</p>
-        <p>Employee List</p>
+        {/* <Link to='/Employeelist'>EmployeeList</Link> */}
+        <Link to="/employee-list">Employee List</Link>
+        </div>
       </div>
       <div className="right-menu">
   <div className="user-info">
@@ -22,7 +26,9 @@ function Dashboard() {
     </div>
       <p className='yellow-strip'>Welcome to the Dashboard!</p>
       <p className='container'>Welcome to addmin panel</p>
+      
     </div>
+    
   );
 }
 
