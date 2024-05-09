@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom';
-//import EditEmployee from './EditEmployee';
-//import CreateEmployee from './CreateEmployee';
-
 
 function EmployeeTable() {
   const [employees, setEmployees] = useState([]);
@@ -26,14 +23,6 @@ function EmployeeTable() {
     }
   };
 
-//   const handleEdit = (id) => {
-//     <EditEmployee id={id}></EditEmployee>
-//     console.log('Edit employee with ID:',{id});
-    
-    
-//   };
-
- 
     const handleDelete = async (id) => {
         try {
           const response = await fetch(`http://localhost:3001/deleteEmployee/${id}`, {

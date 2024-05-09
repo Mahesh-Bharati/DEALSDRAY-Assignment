@@ -195,6 +195,24 @@ app.get('/getEmployee/:id', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
+
+  // Route to find employee by f_Id
+app.get('/searchEmployee/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const employee = await Employee.findOne({ f_Id: id });
+  
+      if (!employee) {
+        return res.status(404).json({ error: 'Employee not found' });
+      }
+  
+      res.json(employee);
+    } catch (error) {
+      console.error('Error finding employee by f_Id:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
   
 
 app.listen(3001, () => {
