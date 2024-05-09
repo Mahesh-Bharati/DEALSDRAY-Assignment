@@ -44,7 +44,8 @@
 }
 
 .user-info p {
-  margin-right: 10px; /* Add some space between username and Logout button */
+  margin-right: 20px; /* Add some space between username and Logout button */
+  margin-right: 20px;
 }
 
 /*css for createEmployee */
@@ -100,5 +101,38 @@ button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
+/*css for table*/
+.employee-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.employee-image {
+  width: 50px;
+  height: auto;
+}
 
 

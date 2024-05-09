@@ -11,9 +11,9 @@ function Dashboard() {
         <div className="dashboard-container">
       <div className="left-menu">
         <div className='user-info'>
-        <p>Home</p>
+        <p className='user-info'>Home</p>
         {/* <Link to='/Employeelist'>EmployeeList</Link> */}
-        <Link to="/employee-list">Employee List</Link>
+        <Link to="/employee-list" className='user-info'>Employee List</Link>
         </div>
       </div>
       <div className="right-menu">

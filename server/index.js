@@ -127,7 +127,52 @@ app.post("/login", async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+
+  // Get all employees
+app.get('/getEmployees', async (req, res) => {
+    try {
+      const employees = await Employee.find({});
+      res.status(200).json(employees);
+    } catch (error) {
+      console.error("Error retrieving employees:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+
+  // DELETE route to handle deleting an employee
+app.delete('/deleteEmployee/:id', async (req, res) => {
+    const { id } = req.params;
   
+    try {
+      // Find the employee by ID and delete it
+      const deletedEmployee = await Employee.findByIdAndDelete(id);
+      if (!deletedEmployee) {
+        return res.status(404).json({ error: "Employee not found" });
+      }
+      res.status(200).json({ message: "Employee deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting employee:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
+  
+  // PUT route to update an existing employee
+app.put('/updateEmployee/:id', async (req, res) => {
+    const { id } = req.params;
+    const updatedEmployeeData = req.body;
+  
+    try {
+      // Find the employee by ID and update it
+      const updatedEmployee = await Employee.findByIdAndUpdate(id, updatedEmployeeData, { new: true });
+      if (!updatedEmployee) {
+        return res.status(404).json({ error: "Employee not found" });
+      }
+      res.status(200).json(updatedEmployee);
+    } catch (error) {
+      console.error("Error updating employee:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 
 app.listen(3001, () => {
   console.log("Server is running on port 3001");
