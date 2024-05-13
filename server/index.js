@@ -99,7 +99,7 @@ function generateId() {
     f_Designation: { type: String, required: true },
     f_gender: { type: String, required: true },
     f_Course: { type: String, required: true },
-    f_Createdate: { type: Date, default: Date.now }
+    f_Createdate: { type: String, default: () => new Date().toISOString().split('T')[0] }
   });
   
   
@@ -107,7 +107,8 @@ function generateId() {
   
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'uploads/')
+      //cb(null, 'uploads/')
+     cb(null,'../reactApp/app/public/uploads/')
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))

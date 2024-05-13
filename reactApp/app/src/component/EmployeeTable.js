@@ -55,7 +55,7 @@ function EmployeeTable() {
             <th>Designation</th>
             <th>Gender</th>
             <th>Course</th>
-            
+            <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -64,15 +64,20 @@ function EmployeeTable() {
             <tr key={employee._id}>
               <td>{employee.f_Id}</td>
               <td>
-                {employee.f_Image && <img src={employee.f_Image} alt="Employee" className="employee-image" />}
+              <td>
+                 {employee.f_Image && <img src={`.${employee.f_Image.substring(22)}`} alt="Employee" className="employee-image" />}
               </td>
+
+              </td>
+
+
               <td>{employee.f_Name}</td>
               <td>{employee.f_Email}</td>
               <td>{employee.f_Mobile}</td>
               <td>{employee.f_Designation}</td>
               <td>{employee.f_gender}</td>
               <td>{employee.f_Course}</td>
-             
+              <td>{employee.f_Createdate}</td>
               <td>
               {/* <link to={`/update/${employee._id}`}>Edit</link> */}
               <Link to={`/update/${employee._id}`}>Edit</Link>

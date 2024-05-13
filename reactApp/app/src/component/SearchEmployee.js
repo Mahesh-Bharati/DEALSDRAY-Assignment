@@ -38,6 +38,7 @@ const SearchEmployee = () => {
               <th>Designation</th>
               <th>Gender</th>
               <th>Courses</th>
+              <th>Date</th>
               {/* Add more table headers for other employee fields */}
             </tr>
           </thead>
@@ -50,6 +51,7 @@ const SearchEmployee = () => {
               <td>{employeeData.f_Designation}</td>
               <td>{employeeData.f_gender}</td>
               <td>{employeeData.f_Course}</td>
+              <td>{employeeData.f_Createdate}</td>
               {/* Add more table cells for other employee fields */}
             </tr>
           </tbody>

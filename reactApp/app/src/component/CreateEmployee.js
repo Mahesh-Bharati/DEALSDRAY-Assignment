@@ -147,7 +147,7 @@ function CreateEmployee() {
             </div>
           </div>
           <div className="form-group">
-            <label>Courses: <span className="required">*</span></label>
+            <label>Courses:</label>
             <div>
               <label>
                 <input type="checkbox" name="f_Course" value="MCA" onChange={handleCheckboxChange} checked={formData.f_Course.includes('MCA')} />
