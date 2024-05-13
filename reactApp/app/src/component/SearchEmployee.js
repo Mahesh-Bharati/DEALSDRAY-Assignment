@@ -32,6 +32,7 @@ const SearchEmployee = () => {
           <thead>
             <tr>
               <th>ID</th>
+              <th>Image</th>
               <th>Name</th>
               <th>Email</th>
               <th>Mobile</th>
@@ -45,8 +46,11 @@ const SearchEmployee = () => {
           <tbody>
             <tr>
               <td>{employeeData.f_Id}</td>
+              <td><img src={`.${employeeData.f_Image.substring(22)}`} alt="Employee" className="employee-image" /></td>
               <td>{employeeData.f_Name}</td>
-              <td>{employeeData.f_Email}</td>
+              {/* <td>{employeeData.f_Email}</td> */}
+              <td><a href={`mailto:${employeeData.f_Email}`}>{employeeData.f_Email}</a></td>
+
               <td>{employeeData.f_Mobile}</td>
               <td>{employeeData.f_Designation}</td>
               <td>{employeeData.f_gender}</td>

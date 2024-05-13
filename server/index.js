@@ -107,7 +107,7 @@ function generateId() {
   
   const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      //cb(null, 'uploads/')
+      
      cb(null,'../reactApp/app/public/uploads/')
     },
     filename: function (req, file, cb) {
@@ -183,6 +183,7 @@ app.put('/updateEmployee/:id', async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
     }
   });
+
 
   // Define a route to get employee data by ID
 app.get('/getEmployee/:id', async (req, res) => {

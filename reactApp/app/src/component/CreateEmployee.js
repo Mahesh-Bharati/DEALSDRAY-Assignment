@@ -170,7 +170,7 @@ function CreateEmployee() {
           </div>
           <div className="form-group">
             <label>Image: <span className="required">*</span></label>
-            <input type="file" name="f_Image" onChange={handleFileChange} />
+            <input type="file" name="f_Image" accept='.jpg,.png' onChange={handleFileChange} />
           </div>
           <button type="submit">Add Employee</button>
         </form>

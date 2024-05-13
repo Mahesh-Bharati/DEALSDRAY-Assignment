@@ -72,7 +72,9 @@ function EmployeeTable() {
 
 
               <td>{employee.f_Name}</td>
-              <td>{employee.f_Email}</td>
+              {/* <td>{employee.f_Email}</td> */}
+              <td><a href={`mailto:${employee.f_Email}`}>{employee.f_Email}</a></td>
+
               <td>{employee.f_Mobile}</td>
               <td>{employee.f_Designation}</td>
               <td>{employee.f_gender}</td>
