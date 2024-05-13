@@ -7,6 +7,7 @@ const path = require('path');
 
 
 
+
 const app = express();
 app.use(bodyParser.json())
 app.use(cors())
@@ -81,18 +82,26 @@ app.post("/login", async (req, res) => {
       return res.status(500).send("Internal Server Error");
     }
   }); 
+  let lastId = 0;
 
+// Function to generate auto-incremented ID
+function generateId() {
+    lastId++;
+    return lastId;
+}
+  
   const employeeSchema = new mongoose.Schema({
-    f_Id: { type: String, required: true },
+    f_Id: { type: Number, unique:true ,default:generateId},
     f_Image: { type: String, required: true },
     f_Name: { type: String, required: true },
-    f_Email: { type: String, required: true },
+    f_Email: { type: String, required: true ,unique: true},
     f_Mobile: { type: String, required: true },
     f_Designation: { type: String, required: true },
     f_gender: { type: String, required: true },
     f_Course: { type: String, required: true },
     f_Createdate: { type: Date, default: Date.now }
   });
+  
   
   const Employee = mongoose.model("Employee", employeeSchema);
   
