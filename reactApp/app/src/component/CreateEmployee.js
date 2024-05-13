@@ -128,7 +128,8 @@ function CreateEmployee() {
             <label>Designation: <span className="required">*</span></label>
             <select name="f_Designation" value={formData.f_Designation} onChange={handleChange}>
               <option value="">Select Designation</option>
-              <option value="HR Manager">HR Manager</option>
+              <option value="HR">HR</option>
+              <option value="Manager">Manager</option>
               <option value="Sales">Sales</option>
             </select>
           </div>
